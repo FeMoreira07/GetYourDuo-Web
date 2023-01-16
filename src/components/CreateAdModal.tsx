@@ -17,7 +17,7 @@ export function CreateAdModal() {
   const [weekDays, setWeekDays] = useState<string[]>([]);
   const [useVoiceChannel, setUseVoiceChannel] = useState(false);
   useEffect(() => {
-    axios("https://get-your-duo-back-end.vercel.app/games").then((response) => {
+    axios("/games").then((response) => {
       setGames(response.data);
     });
   }, []);
