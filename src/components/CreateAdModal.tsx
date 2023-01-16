@@ -45,7 +45,9 @@ export function CreateAdModal() {
         }
       );
       toast.success("Ad created");
-      location.reload();
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
     } catch (err) {
       alert("Error creating the Ad, try again");
     }
