@@ -48,11 +48,11 @@ export function AdsListModal(gameData: GameDataProps) {
   });
 
   useEffect(() => {
-    axios(`http://localhost:3000/games/${gameData.game.id}/ads`).then(
-      (response) => {
-        setAds(response.data);
-      }
-    );
+    axios(
+      `https://get-your-duo-back-end.vercel.app/games/${gameData.game.id}/ads`
+    ).then((response) => {
+      setAds(response.data);
+    });
   }, []);
 
   function copyToClipBoard(duoName: string) {

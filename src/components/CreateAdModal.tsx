@@ -17,7 +17,7 @@ export function CreateAdModal() {
   const [weekDays, setWeekDays] = useState<string[]>([]);
   const [useVoiceChannel, setUseVoiceChannel] = useState(false);
   useEffect(() => {
-    axios("/games").then((response) => {
+    axios("https://get-your-duo-back-end.vercel.app/games").then((response) => {
       setGames(response.data);
     });
   }, []);
@@ -32,7 +32,7 @@ export function CreateAdModal() {
     }
 
     try {
-      await axios.post(`http://localhost:3000/games/${data.game}/ads`, {
+      await axios.post(`https://get-your-duo-back-end.vercel.app/games/${data.game}/ads`, {
         name: data.name,
         yearsPlaying: Number(data.yearsPlaying),
         discord: data.discord,
