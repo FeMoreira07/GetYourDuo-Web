@@ -32,16 +32,20 @@ export function CreateAdModal() {
     }
 
     try {
-      await axios.post(`https://get-your-duo-back-end.vercel.app/games/${data.game}/ads`, {
-        name: data.name,
-        yearsPlaying: Number(data.yearsPlaying),
-        discord: data.discord,
-        weekDays: weekDays.map(Number),
-        hourStart: data.hourStart,
-        hourEnd: data.hourEnd,
-        useVoiceChannel: useVoiceChannel,
-      });
+      await axios.post(
+        `https://get-your-duo-back-end.vercel.app/games/${data.game}/ads`,
+        {
+          name: data.name,
+          yearsPlaying: Number(data.yearsPlaying),
+          discord: data.discord,
+          weekDays: weekDays.map(Number),
+          hourStart: data.hourStart,
+          hourEnd: data.hourEnd,
+          useVoiceChannel: useVoiceChannel,
+        }
+      );
       toast.success("Ad created");
+      location.reload();
     } catch (err) {
       alert("Error creating the Ad, try again");
     }
@@ -52,7 +56,10 @@ export function CreateAdModal() {
       <Dialog.Overlay className="bg-black/60 inset-0 fixed " />
       <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg md:w-[520px] shadow-lg shadow-black/25">
         <Dialog.Title className="text-3xl font-black">Post an Ad</Dialog.Title>
-        <form onSubmit={handleCreateAd} className="mt-8 flex flex-col gap-4 h-[400px] overflow-scroll pr-3 md:overflow-hidden md:h-fit">
+        <form
+          onSubmit={handleCreateAd}
+          className="mt-8 flex flex-col gap-4 h-[400px] overflow-scroll pr-3 md:overflow-hidden md:h-fit"
+        >
           <div className="flex flex-col gap-2">
             <label className="font-semibold" htmlFor="game">
               Which is the game?
