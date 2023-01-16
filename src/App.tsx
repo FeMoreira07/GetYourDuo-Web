@@ -18,7 +18,7 @@ export interface GameProps {
 function App() {
   const [games, setGames] = useState<GameProps[]>([]);
   useEffect(() => {
-    axios("DATABASE_URL/games").then((response) => {
+    axios("/games").then((response) => {
       setGames(response.data);
     });
   }, []);
