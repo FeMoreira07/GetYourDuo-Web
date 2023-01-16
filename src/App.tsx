@@ -18,7 +18,7 @@ export interface GameProps {
 function App() {
   const [games, setGames] = useState<GameProps[]>([]);
   useEffect(() => {
-    axios("https://get-your-duo-back-end.vercel.app/games").then((response) => {
+    axios("DATABASE_URL/games").then((response) => {
       setGames(response.data);
     });
   }, []);
